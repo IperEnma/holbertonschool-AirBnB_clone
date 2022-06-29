@@ -41,4 +41,4 @@ class FileStorage():
 
     def delete(self, key):
         """ delete objects"""
-        del self.__objects[key]
+        FileStorage.__objects.pop(key)

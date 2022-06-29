@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import cmd
+import inspect
+from models import base_model
 from models.base_model import BaseModel
 from models import storage
 
@@ -9,7 +11,6 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnt) "
     
-
     def emptyline(self):
         return ""
 
@@ -35,14 +36,14 @@ class HBNBCommand(cmd.Cmd):
         try:
             new_class = eval(args)()
             new_class.save()
-        except Exception as f:
+        except Exception:
             print("** class doesn't exist **")
 
     def do_show(self, args):
         if len(args) == 0:
             print("** class name missing **")
             return
-        tokens = args.split() 
+        tokens = args.split()
         try:
             eval(tokens[0])()
         except Exception as f:
@@ -64,10 +65,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         tokens = args.split()
-        try:
-            eval(tokens[0])()
-        except Exception as f:
+        
+        if globals().get(tokens[0]) is None:
             print("** class doesn't exist **")
+            return
 
         if len(tokens) < 2:
             print("** instance id missing **")
@@ -75,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
         key = str(tokens[0]) + '.' + str(tokens[1])
         objects = storage.all()
 
-        if objects[key]:
+        if key in objects:
             storage.delete(key) 
             storage.save()
         else:
