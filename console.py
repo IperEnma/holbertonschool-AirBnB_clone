@@ -18,18 +18,15 @@ class HBNBCommand(cmd.Cmd):
         self.stdout.write('[-] Unknown command: %s\n' % (line,))
 
     def do_quit(self, arg):
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self):
+        """ Quit command to exit the program """
         return True
 
-    def help_quit(self):
-        print("Quit command to exit the program\n")
-
-    def help_EOF(self):
-        print("exit the program")
-
     def do_create(self, args):
+        """ Creates a new instance of BaseModel """
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -40,6 +37,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, args):
+        """ Prints the string representation of an instance """
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -61,6 +59,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, args):
+        """ Deletes an instance based on the class name """
         if len(args) == 0:
             print("** class name missing **")
             return
@@ -81,6 +80,21 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** no instance found **")
+
+    def do_all(self, args):
+        """ Prints all string representation """
+        objects = storage.all()
+        tokens = args.split()
+        
+        if len(tokens) == 1:
+            for key, value in objects.items():
+                if tokens[0] == value.__class__.__name__:
+                    print(value)
+        else:
+             for key, value in objects.items():
+                 print(value)
+    def do_update(self, args):
+        """ Updates an instance based on the class name   """
 
 
 if __name__ == '__main__':
