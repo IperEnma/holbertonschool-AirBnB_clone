@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 
-from models.base_model import BaseModel
+import models
 
-class User(BaseModel):
+class User(models.base_model.BaseModel):
     """ user class """
     email = ""
     password = ""

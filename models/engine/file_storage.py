@@ -6,6 +6,7 @@ module with class filestorage
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage():
     """
@@ -36,8 +37,7 @@ class FileStorage():
             with open(FileStorage.__file_path, "r") as f:
                 obj = json.load(f)
             for key, value in obj.items():
-                """value = eval(value["__class__"])(**value)"""
-                self.__objects[key] = BaseModel(**value)
+                 self.__objects[key] = eval(value["__class__"])(**value)
 
     def delete(self, key):
         """ delete objects"""
