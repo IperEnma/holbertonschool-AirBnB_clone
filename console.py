@@ -86,13 +86,12 @@ class HBNBCommand(cmd.Cmd):
         """ Prints all string representation """
         tokens = args.split()
 
-        if globals().get(tokens[0]) is None:
-            print("** class doesn't exist **")
-            return
-
         objects = storage.all()
 
         if len(tokens) == 1:
+            if globals().get(tokens[0]) is None:
+                print("** class doesn't exist **")
+                return
             my_list = []
             for key, value in objects.items():
                 if tokens[0] == value.__class__.__name__:
