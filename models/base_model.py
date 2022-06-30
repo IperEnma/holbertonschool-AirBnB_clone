@@ -16,9 +16,7 @@ class BaseModel():
         """ initialize class """
         if kwargs:
             for key, value in kwargs.items():
-                if key == 'id':
-                    self.id = kwargs['id']
-                elif key == 'created_at':
+                if key == 'created_at':
                     self.created_at = datetime.datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'updated_at':
                     self.updated_at = datetime.datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
@@ -32,7 +30,7 @@ class BaseModel():
 
     def __str__(self):
         """ string representaion """
-        return f"{[BaseModel.__name__]} ({self.id}) {self.__dict__}"
+        return f"{[str(self.__class__.__name__)]} ({self.id}) {self.__dict__}"
 
     def save(self):
         """update public instance"""

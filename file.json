@@ -1,1 +1,1 @@
-{"BaseModel.ea5ffee7-16ab-4c58-9cd4-3499e5711b29": {"id": "ea5ffee7-16ab-4c58-9cd4-3499e5711b29", "created_at": "2022-06-29T18:16:15.310915", "updated_at": "2022-06-29T18:16:15.310928", "first_name": "\"Betty\"", "__class__": "BaseModel"}}
+{"User.64135a24-eb4b-438d-a425-a85009c500b0": {"id": "64135a24-eb4b-438d-a425-a85009c500b0", "created_at": "2022-06-29T22:29:07.282829", "updated_at": "2022-06-29T22:29:07.282847", "name": "juanito", "__class__": "User"}}

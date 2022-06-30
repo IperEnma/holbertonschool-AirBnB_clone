@@ -4,6 +4,7 @@ import cmd
 import inspect
 from models import base_model
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 class HBNBCommand(cmd.Cmd):
@@ -43,10 +44,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         tokens = args.split()
-        
-        if globals().get(tokens[0]) is None:
+        try:
+            eval(tokens[0])()
+        except Exception as f:
             print("** class doesn't exist **")
-            return
 
         if len(tokens) < 2:
             print("** instance id missing **")
@@ -84,58 +85,45 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """ Prints all string representation """
-        tokens = args.split()
-
-        if globals().get(tokens[0]) is None:
-            print("** class doesn't exist **")
-            return
-
         objects = storage.all()
-
+        tokens = args.split()
+        
         if len(tokens) == 1:
-            my_list = []
             for key, value in objects.items():
                 if tokens[0] == value.__class__.__name__:
-                    my_list.append(str(value))
-            print(my_list)
+                    print(value)
         else:
-            my_list = []
-            for key, value in objects.items():
-                my_list.append(str(value))
-            print(my_list)
+             for key, value in objects.items():
+                 print(value)
 
     def do_update(self, args):
         """ Updates an instance based on the class name   """
-
         if len(args) == 0:
             print("** class name missing **")
             return
-
         tokens = args.split()
         if globals().get(tokens[0]) is None:
             print("** class doesn't exist **")
             return
-
-        if len(tokens) < 2:
+        if len(tokens) == 1:
             print("** instance id missing **")
-            return 
-
-        key = str(tokens[0]) + '.' + str(tokens[1])
+            return
         objects = storage.all()
-
-        if key not in objects:
+        key = tokens[0] + "." + tokens[1]
+        try:
+            obj = objects[key]
+        except Exception:
             print("** no instance found **")
             return
-
-        if len(tokens) < 3:
+        if len(tokens) == 2:
             print("** attribute name missing **")
             return
-
-        if len(tokens) < 4:
+        if len(tokens) == 3:
             print("** value missing **")
             return
+        setattr(obj, tokens[2], (tokens[3])[1:-1])
+        """ [1:-1] para quitarle las comillas al value """
 
-        setattr(objects[key], tokens[2], tokens[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
