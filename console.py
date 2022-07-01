@@ -51,7 +51,12 @@ class HBNBCommand(cmd.Cmd):
             else:
                 """ si me pasan un dict """
                 idx = args.find("{")
-                print(args[idx - 1:])
+                dic = (args[idx:-1])
+                args = "update " + args[:idx]
+                args = args.replace(".update(", " ")
+                args = args.replace(",", "")
+                args = args.replace('"', "")
+                args = args + dic
         return args
 
     def do_create(self, args):
@@ -182,8 +187,15 @@ class HBNBCommand(cmd.Cmd):
             setattr(objects[key], tokens[2], tokens[3])
         else:
             """ update w/ dictionary """
-            dic = eval(tokens[2])
-            print(dic)
+            l = len(tokens);
+            dic = ""
+            """ todos los tokens menos clase y id """
+            for i in range(2, l):
+                dic += tokens[i]
+            """dic = eval(tokens[2])"""
+            dic = eval(dic)
+            storage.set_atr(key, dic)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

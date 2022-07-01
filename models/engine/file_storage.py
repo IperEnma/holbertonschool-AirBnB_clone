@@ -51,3 +51,10 @@ class FileStorage():
     @staticmethod
     def all_class():
         return ["BaseModel", "User", "City", "Amenity", "Review", "Place", "State"]
+
+    @staticmethod
+    def set_atr(k , dic):
+        try:    
+            FileStorage.__objects[k].sett_atr(dic)
+        except Exception:
+            print("** no instance found **")
