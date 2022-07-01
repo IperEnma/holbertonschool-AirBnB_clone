@@ -38,12 +38,20 @@ class HBNBCommand(cmd.Cmd):
             args = "count " + args[:-8]
         if (args.find(".show(") != -1):
             args = "show " + ((args.replace(".show(", " "))[:-1])
+            args = args.replace('"', "")
         if (args.find(".destroy(") != -1):
             args = "destroy " + ((args.replace(".destroy(", " "))[:-1])
+            args = args.replace('"', "")
         if (args.find(".update(") != -1):
-            args = "update " + ((args.replace(".update(", " "))[:-1])
-            args = args.replace(",", "")
-            print(args)
+            if (args.find("{") == -1):
+                """ si no me pasan un dict """
+                args = "update " + ((args.replace(".update(", " "))[:-1])
+                args = args.replace(",", "")
+                args = args.replace('"', "")
+            else:
+                """ si me pasan un dict """
+                idx = args.find("{")
+                print(args[idx - 1:])
         return args
 
     def do_create(self, args):
@@ -162,16 +170,20 @@ class HBNBCommand(cmd.Cmd):
         if len(tokens) < 3:
             print("** attribute name missing **")
             return
+        if tokens[2].find("{") == -1:
+            if len(tokens) < 4:
+                print("** value missing **")
+                return
 
-        if len(tokens) < 4:
-            print("** value missing **")
-            return
-
-        if tokens[3][0] == '"':
-            tokens[3] = tokens[3][1:]
-        if tokens[3][-1] == '"':
-            tokens[3] = tokens[3][:-1]
-        setattr(objects[key], tokens[2], tokens[3])
+            if tokens[3][0] == '"':
+                tokens[3] = tokens[3][1:]
+            if tokens[3][-1] == '"':
+                tokens[3] = tokens[3][:-1]
+            setattr(objects[key], tokens[2], tokens[3])
+        else:
+            """ update w/ dictionary """
+            dic = eval(tokens[2])
+            print(dic)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
