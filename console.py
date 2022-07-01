@@ -36,6 +36,8 @@ class HBNBCommand(cmd.Cmd):
             args = "all " + args[:-6]
         if (args[-8:] == ".count()"):
             args = "count " + args[:-8]
+        if (args.find(".show(") != -1):
+            args = "show " + ((args.replace(".show(", " "))[:-1])
         return args
 
     def do_create(self, args):
@@ -98,10 +100,9 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """ Prints all string representation """
         tokens = args.split()
-
         objects = storage.all()
 
-        if len(tokens) == 1:
+        if len(tokens) > 0:
             if tokens[0] not in storage.all_class():   
                 print("** class doesn't exist **")
                 return
