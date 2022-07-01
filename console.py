@@ -38,6 +38,8 @@ class HBNBCommand(cmd.Cmd):
             args = "count " + args[:-8]
         if (args.find(".show(") != -1):
             args = "show " + ((args.replace(".show(", " "))[:-1])
+        if (args.find(".destroy(") != -1):
+            args = "destroy " + ((args.replace(".destroy(", " "))[:-1])
         return args
 
     def do_create(self, args):
