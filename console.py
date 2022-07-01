@@ -40,6 +40,10 @@ class HBNBCommand(cmd.Cmd):
             args = "show " + ((args.replace(".show(", " "))[:-1])
         if (args.find(".destroy(") != -1):
             args = "destroy " + ((args.replace(".destroy(", " "))[:-1])
+        if (args.find(".update(") != -1):
+            args = "update " + ((args.replace(".update(", " "))[:-1])
+            args = args.replace(",", "")
+            print(args)
         return args
 
     def do_create(self, args):
@@ -163,6 +167,10 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
+        if tokens[3][0] == '"':
+            tokens[3] = tokens[3][1:]
+        if tokens[3][-1] == '"':
+            tokens[3] = tokens[3][:-1]
         setattr(objects[key], tokens[2], tokens[3])
 
 if __name__ == '__main__':
