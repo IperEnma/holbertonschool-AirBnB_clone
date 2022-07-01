@@ -31,6 +31,11 @@ class HBNBCommand(cmd.Cmd):
         """ Quit command to exit the program """
         return True
 
+    def precmd(self, args):
+        if (args[-6:] == ".all()"):
+            args = "all " + args[:-6]
+        return args
+
     def do_create(self, args):
         """ Creates a new instance of BaseModel """
         if len(args) == 0:
