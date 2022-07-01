@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
             return
         tokens = args.split()
         
-        if globals().get(tokens[0]) is None:
+        if tokens[0] not in storage.all_class():
             print("** class doesn't exist **")
             return
 
@@ -72,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
             return
         tokens = args.split()
         
-        if globals().get(tokens[0]) is None:
+        if tokens[0] not in storage.all_class():
             print("** class doesn't exist **")
             return
 
@@ -95,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
         objects = storage.all()
 
         if len(tokens) == 1:
-            if globals().get(tokens[0]) is None:
+            if tokens[0] not in storage.all_class():   
                 print("** class doesn't exist **")
                 return
             my_list = []
@@ -117,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         tokens = args.split()
-        if globals().get(tokens[0]) is None:
+        if tokens[0] not in storage.all_class():
             print("** class doesn't exist **")
             return
 

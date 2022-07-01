@@ -47,3 +47,7 @@ class FileStorage():
     def delete(self, key):
         """ delete objects"""
         FileStorage.__objects.pop(key)
+
+    @staticmethod
+    def all_class():
+        return ["BaseModel", "User", "City", "Amenity", "Review", "Place", "State"]
