@@ -34,6 +34,8 @@ class HBNBCommand(cmd.Cmd):
     def precmd(self, args):
         if (args[-6:] == ".all()"):
             args = "all " + args[:-6]
+        if (args[-8:] == ".count()"):
+            args = "count " + args[:-8]
         return args
 
     def do_create(self, args):
@@ -113,6 +115,19 @@ class HBNBCommand(cmd.Cmd):
             for key, value in objects.items():
                 my_list.append(str(value))
             print(my_list)
+
+    def do_count(elf, args):
+        tokens = args.split()
+        objects = storage.all()
+        if len(tokens) == 1:
+            if tokens[0] not in storage.all_class():
+                print("** class doesn't exist **")
+            else:
+                count = 0
+                for k, v in objects.items():
+                    if (v.__class__.__name__ == tokens[0]):
+                        count += 1
+                print(count)
 
     def do_update(self, args):
         """ Updates an instance based on the class name   """
