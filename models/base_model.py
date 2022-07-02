@@ -20,11 +20,9 @@ class BaseModel:
                 if key == 'id':
                     self.id = kwargs['id']
                 elif key == 'created_at':
-                    self.created_at = datetime.datetime.strptime
-                    (kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = datetime.datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'updated_at':
-                    self.updated_at = datetime.datetime.strptime
-                    (kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.updated_at = datetime.datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
                 elif key != '__class__':
                     setattr(self, key, value)
         else:
@@ -59,10 +57,8 @@ class BaseModel:
         """ set attr from dict """
         for key, value in dic.items():
             if key == 'created_at':
-                self.created_at = datetime.datetime.strptime
-                (dic['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                self.created_at = datetime.datetime.strptime(dic['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
             elif key == 'updated_at':
-                self.updated_at = datetime.datetime.strptime
-                (dic['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                self.updated_at = datetime.datetime.strptime(dic['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
             elif key != '__class__':
                 setattr(self, key, value)
