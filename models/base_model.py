@@ -4,15 +4,16 @@ class base model
 """
 
 import uuid
-import datetime
+from datetime import datetime
 import models
+strptime = datetime.strptime
+_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
     """
     defining the class
     """
-
     def __init__(self, *args, **kwargs):
         """ initialize class """
         if kwargs:
@@ -20,16 +21,15 @@ class BaseModel:
                 if key == 'id':
                     self.id = kwargs['id']
                 elif key == 'created_at':
-                    self.created_at = datetime.datetime.strptime
-                    (kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = strptime(kwargs['created_at'], _fortmat)
                 elif key == 'updated_at':
-                    self.updated_at = datetime.datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.updated_at = strptime(kwargs['updated_at'], _format)
                 elif key != '__class__':
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class BaseModel:
 
     def save(self):
         """update public instance"""
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
@@ -58,8 +58,8 @@ class BaseModel:
         """ set attr from dict """
         for key, value in dic.items():
             if key == 'created_at':
-                self.created_at = datetime.datetime.strptime(dic['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                self.created_at = strptime(dic['created_at'], _format)
             elif key == 'updated_at':
-                self.updated_at = datetime.datetime.strptime(dic['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                self.updated_at = strptime(dic['updated_at'], _format)
             elif key != '__class__':
                 setattr(self, key, value)
