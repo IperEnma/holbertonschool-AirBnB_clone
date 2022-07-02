@@ -46,3 +46,9 @@ class test_class_base(unittest.TestCase):
         self.kwargs = BaseModel(self.dict)
         self.assertIsInstance(self.kwargs, BaseModel)
 
+    def test_update(self):
+        """ test update date """
+        update_old = self.my_model.updated_at
+        self.my_model.save()
+        update_new = self.my_model.updated_at
+        self.assertTrue(update_old != update_new)
