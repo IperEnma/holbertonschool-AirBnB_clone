@@ -29,11 +29,11 @@ class test_file_storage(unittest.TestCase):
         """ test reload from json """
         self.my_model.name = "My_first_model"
         self.my_model.my_number = 89
+        key = str(self.my_model.__class__.__name__) + "." + str(self.my_model.id)
         self.my_model.save()
         self.storage.reload()
         objs = self.storage.all()
-        for obj_id in objs.keys():
-            self.obj_reload = objs[obj_id]
+        self.obj_reload = objs[key]
         self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
