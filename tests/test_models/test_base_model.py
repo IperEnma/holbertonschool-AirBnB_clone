@@ -7,14 +7,15 @@ import unittest
 from models import base_model
 from models.base_model import BaseModel
 
+
 class test_class_base(unittest.TestCase):
     """class for testing class base model"""
-    
+
     @classmethod
     def setUpClass(self):
         """set class"""
         self.my_model = BaseModel()
-    
+
     def setUp(self):
         """ set attr """
         self.dict = self.my_model.to_dict()
