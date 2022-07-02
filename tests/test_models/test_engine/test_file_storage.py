@@ -39,4 +39,4 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(storage.all(), "My_first_model")
-        self.assertNotEqual(self.my_model.created_at, self.my_model.updated_at)
+        self.assertNotEqual(self.obj_reload.created_at, self.obj_reload.updated_at)
