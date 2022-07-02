@@ -6,14 +6,15 @@ class base model
 import uuid
 from datetime import datetime
 import models
-strptime = datetime.strptime
-_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
     """
     defining the class
     """
+    strptime = datetime.strptime
+    _format = "%Y-%m-%dT%H:%M:%S.%f"
+
     def __init__(self, *args, **kwargs):
         """ initialize class """
         if kwargs:
