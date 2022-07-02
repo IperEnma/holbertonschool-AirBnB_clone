@@ -44,3 +44,7 @@ class test_file_storage(unittest.TestCase):
     def test_attrd(self):
         """test for presence of attributes"""
         self.assertEqual(dict, type(self.storage.all()))
+
+    def test_reload(self):
+        """ method reload check """
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
