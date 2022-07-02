@@ -14,7 +14,7 @@ class BaseModel:
     """
 
     def __init__(self, *args, **kwargs):
-        """ initialize class """
+        """initialize class new or kwargs"""
         if kwargs:
             strptime = datetime.strptime
             _format = "%Y-%m-%dT%H:%M:%S.%f"
@@ -32,7 +32,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """ string representaion """
+        """return string representaion"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
