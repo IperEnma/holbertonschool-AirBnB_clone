@@ -29,7 +29,8 @@ class test_file_storage(unittest.TestCase):
         """ test reload from json """
         self.my_model.name = "My_first_model"
         self.my_model.my_number = 89
-        key = str(self.my_model.__class__.__name__) + "." + str(self.my_model.id)
+        name = str(self.my_model.__class__.__name__)
+        key = name + "." + str(self.my_model.id)
         self.my_model.save()
         self.storage.reload()
         objs = self.storage.all()
