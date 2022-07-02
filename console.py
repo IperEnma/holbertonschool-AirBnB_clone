@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
         self.stdout.write('[-] Unknown command: %s\n' % (line,))
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit command to exit the program\n"""
         return True
 
     def do_EOF(self, arg):
