@@ -52,3 +52,7 @@ class test_file_storage(unittest.TestCase):
     def test_models_all(self):
         """ models storage all check """
         self.assertIsNotNone(models.storage.all())
+
+    def test_new(self):
+        """ method new check """
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().new)
