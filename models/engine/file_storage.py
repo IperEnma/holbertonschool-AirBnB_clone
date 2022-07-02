@@ -25,6 +25,10 @@ class FileStorage():
         """return objects"""
         return FileStorage.__objects
 
+    def path(self):
+        """ return path file """
+        return FileStorage.__file_path
+
     def new(self, obj):
         """sets in objects"""
         name = str(obj.__class__.__name__)

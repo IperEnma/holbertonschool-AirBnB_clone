@@ -11,9 +11,13 @@ from models import storage
 class test_file_storage(unittest.TestCase):
     """ class test file storage """
 
+    @classmethod
+    def setUpClass(self):
+        """ set instance class """
+        self.my_model = BaseModel()
+
     def test_reload(self):
         """ test reload with new attr """
-        self.my_model = BaseModel()
         self.my_model.name = "My_first_model"
         self.my_model.my_number = 89
         self.my_model.save()
@@ -22,3 +26,7 @@ class test_file_storage(unittest.TestCase):
         for obj_id in objs.keys():
             obj_reload = objs[obj_id]
         self.assertTrue(self.my_model.__dict__ == obj_reload.__dict__)
+
+    def test_file(self):
+        """ test file existence """
+        self.assertTrue(storage.path(), "file.json")
