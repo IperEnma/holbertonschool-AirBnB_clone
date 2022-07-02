@@ -7,7 +7,7 @@ import uuid
 import datetime
 import models
 
-class BaseModel():
+class BaseModel:
     """
     defining the class
     """
@@ -32,7 +32,7 @@ class BaseModel():
 
     def __str__(self):
         """ string representaion """
-        return f"{[self.__class__.__name__]} ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """update public instance"""
