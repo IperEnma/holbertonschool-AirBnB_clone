@@ -21,7 +21,7 @@ class BaseModel:
                 if key == 'id':
                     self.id = kwargs['id']
                 elif key == 'created_at':
-                    self.created_at = strptime(kwargs['created_at'], _fortmat)
+                    self.created_at = strptime(kwargs['created_at'], _format)
                 elif key == 'updated_at':
                     self.updated_at = strptime(kwargs['updated_at'], _format)
                 elif key != '__class__':
