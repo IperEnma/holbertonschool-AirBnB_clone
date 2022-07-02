@@ -40,3 +40,7 @@ class test_file_storage(unittest.TestCase):
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "My_first_model")
         self.assertNotEqual(self.obj_reload.created_at, self.obj_reload.updated_at)
+
+    def test_attrd(self):
+        """test for presence of attributes"""
+        self.assertTrue(hasattr(self.storage, "file.json"))
