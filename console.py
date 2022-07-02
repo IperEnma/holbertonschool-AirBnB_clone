@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 import cmd
-import inspect
-from models import base_model
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
