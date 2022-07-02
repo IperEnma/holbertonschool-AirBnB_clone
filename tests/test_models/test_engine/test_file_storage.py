@@ -47,7 +47,3 @@ class test_file_storage(unittest.TestCase):
     def test_reload(self):
         """ method reload check """
         self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
-
-    def test_models_all(self):
-        """ models storage all check """
-        self.assertIsNotNone(models.storage.all())
