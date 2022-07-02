@@ -38,8 +38,8 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
-        self.assertTrue(self.storage.all(), "My_first_model")
+        self.assertTrue(self.storage.all(), "My_first_model") 
 
-    def test_attrd(self):
-        """test for presence of attributes"""
-        self.assertEqual(dict, type(self.storage.all())) 
+    def test_reload(self):
+        """ method reload check """
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
