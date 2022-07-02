@@ -30,11 +30,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
-        quit()
+        return True
 
     def do_EOF(self, arg):
         """ Quit command to exit the program """
-        quit()
+        return True
 
     def precmd(self, args):
         """ before the command line line is interpreted """
