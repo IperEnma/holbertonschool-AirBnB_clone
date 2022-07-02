@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -13,8 +14,11 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """line-oriented command interpreters"""
-
-    prompt = "(hbnb) "
+    
+    if sys.stdin and sys.stdin.isatty():
+        prompt = "(hbnb) "
+    else:
+        prompt = "(hbnb) \n"
 
     def emptyline(self):
         """ return empty line"""
@@ -32,13 +36,8 @@ class HBNBCommand(cmd.Cmd):
         """ Quit command to exit the program """
         quit()
 
-    def postcmd(self, stop, args):
-        """ after the command line line is interpreted """
-        print()
-
     def precmd(self, args):
         """ before the command line line is interpreted """
-        print()
         if (args[-6:] == ".all()"):
             args = "all " + args[:-6]
         if (args[-8:] == ".count()"):
