@@ -33,8 +33,7 @@ class BaseModel:
 
     def __str__(self):
         """return string representaion"""
-        return ("[{}] ({}) {}".format(self.__class__.__name__,
-                self.id, self.__dict__))
+        return f"[{ self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """update public instance"""
