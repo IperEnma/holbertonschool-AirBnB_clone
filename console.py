@@ -16,7 +16,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """intrepeter module"""
 
-    prompt = "(hbnt) "
+    prompt = "(hbnb) "
 
     def emptyline(self):
         return ""
