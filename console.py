@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program"""
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, arg):
         """ Quit command to exit the program """
         return True
 
@@ -137,6 +137,7 @@ class HBNBCommand(cmd.Cmd):
             print(my_list)
 
     def do_count(elf, args):
+        """ count instances """
         tokens = args.split()
         objects = storage.all()
         if len(tokens) == 1:
