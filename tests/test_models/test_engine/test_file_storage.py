@@ -4,6 +4,7 @@ test module file storage
 """
 
 import unittest
+from models import file_storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
@@ -16,6 +17,14 @@ class test_file_storage(unittest.TestCase):
         """ set instance class """
         self.my_model = BaseModel()
         self.storage = FileStorage()
+
+    def test_docmodule(self):
+        """ checking doc module """
+        self.assertGreater(len(file_storage.__doc__), 1)
+
+    def test_docclass(self):
+        """checking doc class"""
+        self.assertGreater(len(BaseModel.__doc__), 1)
 
     def test_reload(self):
         """ test reload from json """
