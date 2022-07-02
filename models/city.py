@@ -3,6 +3,7 @@
 
 import models
 
+
 class City(models.base_model.BaseModel):
     """ class city """
 

@@ -3,6 +3,7 @@
 
 import models
 
+
 class Review(models.base_model.BaseModel):
     """ class review """
 

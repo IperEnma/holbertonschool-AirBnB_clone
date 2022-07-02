@@ -3,6 +3,7 @@
 
 import models
 
+
 class Place(models.base_model.BaseModel):
     """ class place """
 
