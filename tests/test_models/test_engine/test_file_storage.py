@@ -27,3 +27,5 @@ class test_file_storage(unittest.TestCase):
         for obj_id in objs.keys():
             obj_reload = objs[obj_id]
         self.assertTrue(self.my_model.__dict__ == obj_reload.__dict__)
+        self.assertTrue(self.my_model is not obj_reload)
+        self.assertEqual(getattr(self.my_model, 'name'), "My_first_model")
