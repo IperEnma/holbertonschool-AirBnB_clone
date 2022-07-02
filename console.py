@@ -32,8 +32,13 @@ class HBNBCommand(cmd.Cmd):
         """ Quit command to exit the program """
         quit()
 
+    def postcmd(self, stop, args):
+        """ after the command line line is interpreted """
+        print()
+
     def precmd(self, args):
         """ before the command line line is interpreted """
+        print()
         if (args[-6:] == ".all()"):
             args = "all " + args[:-6]
         if (args[-8:] == ".count()"):
