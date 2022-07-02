@@ -20,14 +20,14 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """ return empty line"""
-        return ""
+        pass
 
     def default(self, line):
         """invalid command message"""
-        self.stdout.write('[-] Unknown command: %s\n' % (line,))
+        self.stdout.write('[-] Unknown command: %s' % (line,))
 
     def do_quit(self, arg):
-        """Quit command to exit the program\n"""
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, arg):
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             print(my_list)
 
     def do_count(elf, args):
-        """ count instances """
+        """ returns number of instances """
         tokens = args.split()
         objects = storage.all()
         if len(tokens) == 1:
