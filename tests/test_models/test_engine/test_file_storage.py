@@ -39,7 +39,6 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "My_first_model")
-        self.assertNotEqual(self.obj_reload.created_at, self.obj_reload.updated_at)
 
     def test_attrd(self):
         """test for presence of attributes"""
@@ -55,4 +54,4 @@ class test_file_storage(unittest.TestCase):
 
     def test_new(self):
         """ method new check """
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().new)
+       self.assertIsNotNone(models.engine.file_storage.FileStorage().new)
