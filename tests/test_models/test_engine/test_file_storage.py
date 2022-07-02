@@ -43,4 +43,4 @@ class test_file_storage(unittest.TestCase):
 
     def test_attrd(self):
         """test for presence of attributes"""
-        self.assertTrue(hasattr(self.storage, "file.json"))
+        self.assertEqual(dict, type(self.storage.all()))
