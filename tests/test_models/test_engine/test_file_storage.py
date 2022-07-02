@@ -33,8 +33,7 @@ class test_file_storage(unittest.TestCase):
         self.storage.reload()
         objs = self.storage.all()
         for obj_id in objs.keys():
-            obj_reload = objs[obj_id]
-        self.assertTrue(self.my_model.__dict__ == obj_reload.__dict__)
-        self.assertTrue(self.my_model is not obj_reload)
-        self.assertIsInstance(obj_reload, BaseModel)
-        self.assertIsInstance(objs, dict)
+            self.obj_reload = objs[obj_id]
+        self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
+        self.assertTrue(self.my_model is not self.obj_reload)
+        self.assertIsInstance(self.obj_reload, BaseModel)
