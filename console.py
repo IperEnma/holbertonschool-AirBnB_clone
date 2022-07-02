@@ -14,14 +14,16 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """intrepeter module"""
+    """line-oriented command interpreters"""
 
     prompt = "(hbnb) "
 
     def emptyline(self):
+        """ return empty line"""
         return ""
 
     def default(self, line):
+        """invalid command message"""
         self.stdout.write('[-] Unknown command: %s\n' % (line,))
 
     def do_quit(self, arg):
@@ -33,6 +35,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def precmd(self, args):
+        """ before the command line line is interpreted """
         if (args[-6:] == ".all()"):
             args = "all " + args[:-6]
         if (args[-8:] == ".count()"):
