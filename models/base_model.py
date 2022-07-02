@@ -19,9 +19,7 @@ class BaseModel:
             strptime = datetime.strptime
             _format = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
-                if key == 'id':
-                    self.id = kwargs['id']
-                elif key == 'created_at':
+                if key == 'created_at':
                     self.created_at = strptime(kwargs['created_at'], _format)
                 elif key == 'updated_at':
                     self.updated_at = strptime(kwargs['updated_at'], _format)
