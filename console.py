@@ -12,11 +12,12 @@ from models.place import Place
 from models.review import Review
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """intrepeter module"""
 
     prompt = "(hbnt) "
-    
+
     def emptyline(self):
         return ""
 
@@ -77,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         tokens = args.split()
-        
+
         if tokens[0] not in storage.all_class():
             print("** class doesn't exist **")
             return
@@ -99,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         tokens = args.split()
-        
+
         if tokens[0] not in storage.all_class():
             print("** class doesn't exist **")
             return
@@ -111,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         objects = storage.all()
 
         if key in objects:
-            storage.delete(key) 
+            storage.delete(key)
             storage.save()
         else:
             print("** no instance found **")
@@ -122,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
         objects = storage.all()
 
         if len(tokens) > 0:
-            if tokens[0] not in storage.all_class():   
+            if tokens[0] not in storage.all_class():
                 print("** class doesn't exist **")
                 return
             my_list = []
@@ -164,7 +165,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(tokens) < 2:
             print("** instance id missing **")
-            return 
+            return
 
         key = str(tokens[0]) + '.' + str(tokens[1])
         objects = storage.all()
@@ -188,10 +189,10 @@ class HBNBCommand(cmd.Cmd):
             setattr(objects[key], tokens[2], tokens[3])
         else:
             """ update w/ dictionary """
-            l = len(tokens);
+            lenght = len(tokens)
             dic = ""
             """ todos los tokens menos clase y id """
-            for i in range(2, l):
+            for i in range(2, lenght):
                 dic += tokens[i]
             """dic = eval(tokens[2])"""
             dic = eval(dic)
