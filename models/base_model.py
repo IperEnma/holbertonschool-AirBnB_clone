@@ -12,12 +12,12 @@ class BaseModel:
     """
     defining the class
     """
-    strptime = datetime.strptime
-    _format = "%Y-%m-%dT%H:%M:%S.%f"
 
     def __init__(self, *args, **kwargs):
         """ initialize class """
         if kwargs:
+            strptime = datetime.strptime
+            _format = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = kwargs['id']
@@ -57,6 +57,8 @@ class BaseModel:
 
     def sett_atr(self, dic):
         """ set attr from dict """
+        strptime = datetime.strptime
+        _format = "%Y-%m-%dT%H:%M:%S.%f"
         for key, value in dic.items():
             if key == 'created_at':
                 self.created_at = strptime(dic['created_at'], _format)
