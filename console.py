@@ -22,9 +22,9 @@ class HBNBCommand(cmd.Cmd):
         """ return empty line"""
         pass
 
-    def default(self, line):
-        """invalid command message"""
-        self.stdout.write('[-] Unknown command: %s' % (line,))
+    """def default(self, line):
+        invalid command message
+        self.stdout.write('[-] Unknown command: %s' % (line,))"""
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
