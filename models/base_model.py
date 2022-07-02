@@ -31,7 +31,7 @@ class BaseModel():
     def __str__(self):
         """ string representaion """
         return f"{[str(self.__class__.__name__)]} ({self.id}) {self.__dict__}"
-
+    
     def save(self):
         """update public instance"""
         self.updated_at = datetime.datetime.now()
@@ -49,3 +49,14 @@ class BaseModel():
             else:
                 new_dict.update([(key, value)])
         return new_dict
+
+    def sett_atr(self, dic):
+        """ set attr from dict """
+        for key, value in dic.items():
+            if key == 'created_at':
+                self.created_at = datetime.datetime.strptime(dic['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            elif key == 'updated_at':
+                self.updated_at = datetime.datetime.strptime(dic['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            elif key != '__class__':
+                setattr(self, key, value)
+

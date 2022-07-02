@@ -7,6 +7,14 @@ import json
 import os
 from models.base_model import BaseModel
 from models.user import User
+<<<<<<< HEAD
+=======
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+>>>>>>> ema
 
 class FileStorage():
     """
@@ -38,10 +46,25 @@ class FileStorage():
                 obj = json.load(f)
             self.__objects = {}
             for key, value in obj.items():
+<<<<<<< HEAD
                 """value = eval(value["__class__"])(**value)"""
                 clas = value["__class__"]
                 self.__objects[key] = eval(clas)(value)
+=======
+                 self.__objects[key] = eval(value["__class__"])(**value)
+>>>>>>> ema
 
     def delete(self, key):
         """ delete objects"""
         FileStorage.__objects.pop(key)
+
+    @staticmethod
+    def all_class():
+        return ["BaseModel", "User", "City", "Amenity", "Review", "Place", "State"]
+
+    @staticmethod
+    def set_atr(k , dic):
+        try:    
+            FileStorage.__objects[k].sett_atr(dic)
+        except Exception:
+            print("** no instance found **")
