@@ -8,6 +8,7 @@ import unittest
 import console
 from console import HBNBCommand
 
+
 class test_class_base(unittest.TestCase):
     """class for testing class base model"""
 
