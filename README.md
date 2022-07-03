@@ -51,9 +51,7 @@ Execute:
 | `show`      | `show BaseModel 'valid_id'` /  `BaseModel.show("'valid_id'")` | Prints the string representation of an instance |
 | `destroy`      | `destroy City 'valid_id'` / `City.destroy("'valid_id'")`| Deletes an instance |
 | `all`      | `all` / `all User` /  `User.all()`| Prints all string representation of all instances |
-| `update`      | `update BaseModel 'valid_id' email "aibnb@mail.com"` |  Updates an instance |
-|       | `BaseModel.update("'valid_id'", "email", "aibnb@mail.com")` | |
-|       | `BaseModel.update("'valid_id'", {'email' : "aibnb@mail.com", 'age': 23})` | |
+| `update`      | `update BaseModel 'valid_id' email "aibnb@mail.com"` / `BaseModel.update("'valid_id'", "email", "aibnb@mail.com")` / `BaseModel.update("'valid_id'", {'email' : "aibnb@mail.com", 'age': 23})`|  Updates an instance |
 | `count`      | `User.count()` |  Prints the number of instances of a class |
 
 #### Classes:
