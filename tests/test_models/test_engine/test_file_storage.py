@@ -62,3 +62,7 @@ class test_file_storage(unittest.TestCase):
     def setUp(self):
         """ set attr """
         print()
+
+    def setUpClass(cls):
+        """ set class"""
+        print()
