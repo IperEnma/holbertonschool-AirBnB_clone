@@ -77,7 +77,3 @@ class test_file_storage(unittest.TestCase):
     def test_docclass(self):
         """checking doc class"""
         self.assertIsNotNone(BaseModel.__doc__)
-
-    def test_create_base(self):
-        """test instance class BaseModel"""
-        self.assertIsInstance(self.my_model, BaseModel)
