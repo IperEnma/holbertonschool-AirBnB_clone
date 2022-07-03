@@ -24,10 +24,6 @@ class test_file_storage(unittest.TestCase):
         """checking doc class"""
         self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
 
-    def test_all(self):
-        """checking method all"""
-        self.assertIsNotNone(self.storage.all())
-
     def test_reload(self):
         """ test reload from json """
         self.my_model.name = "My_first_model"
@@ -37,6 +33,7 @@ class test_file_storage(unittest.TestCase):
         self.my_model.save()
         self.storage.reload()
         objs = self.storage.all()
+        self.assertIsNotNone(objs[key])
         self.obj_reload = objs[key]
         self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
         self.assertTrue(self.my_model is not self.obj_reload)
