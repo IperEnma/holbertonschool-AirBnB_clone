@@ -17,10 +17,13 @@ from models.engine.file_storage import FileStorage
 class test_file_storage(unittest.TestCase):
     """ class test file storage """
 
-    def setUp(self):
-        """ set instance class """
-        self.my_model = BaseModel()
-        self.storage = file_storage.FileStorage()
+    def test_inst(self):
+        """ test instance """
+        i = FileStorage()
+        self.assertEqual(i.path(), "file.json")
+        bm = BaseModel()
+        i.new(bm)
+        self.assertGreater(len(i.all()), 0)
 
     def test_docmodule(self):
         """ checking doc module """
@@ -30,13 +33,10 @@ class test_file_storage(unittest.TestCase):
         """checking doc class"""
         self.assertIsNotNone(FileStorage.__doc__)
 
-    def test_json(self):
-        """Check file json"""
-        with open("file.json") as f:
-            self.assertGreater(len(f.read()), 0)
-
     def test_reload(self):
         """ test reload from json """
+        self.my_model = BaseModel()
+        self.storage = file_storage.FileStorage()
         self.my_model.name = "My_first_model"
         self.my_model.my_number = 89
         name = str(self.my_model.__class__.__name__)
@@ -50,19 +50,3 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "My_first_model")
-
-    def test_inst(self):
-        """ test instance """
-        i = FileStorage()
-        self.assertEqual(i.path(), "file.json")
-        bm = BaseModel()
-        i.new(bm)
-        self.assertGreater(len(i.all()), 0)
-
-    def setUp(self):
-        """ set attr """
-        print()
-
-    def setUpClass(cls):
-        """ set class"""
-        print()
