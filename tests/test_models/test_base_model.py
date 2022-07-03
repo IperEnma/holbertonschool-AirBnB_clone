@@ -74,15 +74,7 @@ class test_class_base(unittest.TestCase):
                 "./models/base_model.py",
                 "./models/__init__.py",
                 "./models/review.py",
-                "./models/user.py",
-                "./tests/test_models/__init__.py",
-                "./tests/test_models/test_city.py",
-                "./tests/test_models/test_state.py",
-                "./tests/test_models/test_amenity.py",
-                "./tests/test_models/test_place.py",
-                "./tests/test_models/test_user.py",
-                "./tests/test_models/test_base_model.py",
-                "./tests/test_models/test_review.py"]
+                "./models/user.py"]
         check = style.check_files(filenames)
         self.assertEqual(check.total_errors, 0)
 

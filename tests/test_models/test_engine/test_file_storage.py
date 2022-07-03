@@ -34,8 +34,6 @@ class test_file_storage(unittest.TestCase):
 
     def test_reload(self):
         """ test reload from json """
-        self.my_model = BaseModel()
-        self.storage = file_storage.FileStorage()
         self.my_model.name = "My_first_model"
         self.my_model.my_number = 89
         name = str(self.my_model.__class__.__name__)
