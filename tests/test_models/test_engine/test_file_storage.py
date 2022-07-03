@@ -65,7 +65,3 @@ class test_file_storage(unittest.TestCase):
     def setUpClass(self):
         """set class"""
         self.my_model = BaseModel()
-
-    def setUp(self):
-        """ set attr """
-        self.dict = self.my_model.to_dict()
