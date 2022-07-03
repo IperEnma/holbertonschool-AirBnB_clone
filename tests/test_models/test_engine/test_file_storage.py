@@ -124,11 +124,3 @@ class test_file_storage(unittest.TestCase):
                 "./models/user.py"]
         check = style.check_files(filenames)
         self.assertEqual(check.total_errors, 0)
-
-    def test_to_dict(self):
-        """test_to_dict """
-        bm = BaseModel()
-        dic = bm.to_dict()
-        self.assertEqual(type(dic), dict)
-        self.assertTrue(type(dic['created_at']) is str)
-        self.assertTrue(type(dic['updated_at']) is str)
