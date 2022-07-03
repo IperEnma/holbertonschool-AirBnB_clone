@@ -25,6 +25,10 @@ class test_file_storage(unittest.TestCase):
         """checking doc class"""
         self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
 
+    def test_instance(self):
+        """checking instance filestorage"""
+        self.assertIsNotNone(file_storage.FileStorage().all)
+
     def test_reload(self):
         """ test reload from json """
         self.my_model.name = "My_first_model"
