@@ -3,7 +3,9 @@
 testing class base
 """
 
+import pep8
 import unittest
+import os
 from models import base_model
 from datetime import datetime
 from models.base_model import BaseModel
@@ -58,3 +60,10 @@ class test_class_base(unittest.TestCase):
         self.my_model.save()
         update_new = self.my_model.updated_at
         self.assertTrue(update_old != update_new)
+
+    def test_pep8(self):
+        style = pep8.StyleGuide()
+        filenames = ["./models/engine/file_storage.py"]
+        """, "./models/engine/file_storage.py"]"""
+        check = style.check_files(filenames)
+        self.assertEqual(check.total_errors, 0, 'PEP8 style errors: %d' % check.total_errors)
