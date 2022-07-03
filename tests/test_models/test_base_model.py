@@ -66,4 +66,8 @@ class test_class_base(unittest.TestCase):
         filenames = ["./models/engine/file_storage.py"]
         """, "./models/engine/file_storage.py"]"""
         check = style.check_files(filenames)
-        self.assertEqual(check.total_errors, 0, 'PEP8 style errors: %d' % check.total_errors)
+        self.assertEqual(check.total_errors, 0)
+        filenames = ["./models/amenity.py", "./models/city.py", "./models/place.py",   "./models/state.py",
+                "./models/base_model.py",  "./models/__init__.py",  "./models/review.py",  "./models/user.py"]
+        check = style.check_files(filenames)
+        self.assertEqual(check.total_errors, 0)
