@@ -20,10 +20,15 @@ class test_file_storage(unittest.TestCase):
         """ checking doc module """
         self.assertGreater(len(file_storage.__doc__), 1)
 
-
     def test_docclass(self):
         """checking doc class"""
         self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
+
+    def test_all(self):
+        """checking method all"""
+        objs = self.storage.all()
+        self.assertIsNotNone(objs)
+        self.assertEqual(type(objs), dict)
 
     def test_reload(self):
         """ test reload from json """
