@@ -23,11 +23,11 @@ class test_class_base(unittest.TestCase):
 
     def test_docmodule(self):
         """checking doc module"""
-        self.assertGreater(len(base_model.__doc__), 1)
+        self.assertIsNotNone(base_model.__doc__)
 
     def test_docclass(self):
         """checking doc class"""
-        self.assertGreater(len(BaseModel.__doc__), 1)
+        self.assertIsNotNone(BaseModel.__doc__)
 
     def test_create_base(self):
         """test instance class BaseModel"""

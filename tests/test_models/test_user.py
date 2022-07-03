@@ -7,6 +7,7 @@ import unittest
 from models import user
 from datetime import datetime
 from models.user import User
+from models.base_model import BaseModel
 
 
 class test_class_base(unittest.TestCase):
@@ -23,11 +24,11 @@ class test_class_base(unittest.TestCase):
 
     def test_docmodule(self):
         """checking doc module"""
-        self.assertGreater(len(user.__doc__), 1)
+        self.assertIsNotNone(user.__doc__)
 
     def test_docclass(self):
         """checking doc class"""
-        self.assertGreater(len(User.__doc__), 1)
+        self.assertIsNotNone(User.__doc__)
 
     def test_create_base(self):
         """test instance class"""
@@ -38,14 +39,10 @@ class test_class_base(unittest.TestCase):
         self.assertEqual(type(self.my_model.id), str)
         self.assertEqual(type(self.my_model.created_at), datetime)
         self.assertEqual(type(self.my_model.updated_at), datetime)
-
-        self.my_model.name = "My First Model"
-        self.my_model.my_number = 89
-        self.assertIn("name", self.my_model.to_dict())
-        self.assertIn("my_number", self.my_model.to_dict())
-        self.dict = self.my_model.to_dict()
-        self.assertEqual(self.dict["my_number"], 89)
-        self.assertEqual(self.dict["name"], "My First Model")
+        self.assertEqual(self.my_model.email, "")
+        self.assertEqual(self.my_model.password, "")
+        self.assertEqual(self.my_model.first_name, "")
+        self.assertEqual(self.my_model.last_name, "")
 
     def test_create_kwargs(self):
         """ create class from dictionary """
@@ -58,3 +55,11 @@ class test_class_base(unittest.TestCase):
         self.my_model.save()
         update_new = self.my_model.updated_at
         self.assertTrue(update_old != update_new)
+
+    def test_class(self):
+        """ test class """
+        self.assertEqual(User.email, "")
+        self.assertEqual(User.password, "")
+        self.assertEqual(User.first_name, "")
+        self.assertEqual(User.last_name, "")
+        self.assertTrue(issubclass(User, BaseModel))
