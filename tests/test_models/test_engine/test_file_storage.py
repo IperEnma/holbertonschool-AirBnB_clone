@@ -5,8 +5,11 @@ test module file storage
 
 import json
 import unittest
+import os
+from os import remove
 from models.base_model import BaseModel
 from models.engine import file_storage
+from models.engine.file_storage import FileStorage
 
 
 class test_file_storage(unittest.TestCase):
@@ -19,11 +22,11 @@ class test_file_storage(unittest.TestCase):
 
     def test_docmodule(self):
         """ checking doc module """
-        self.assertGreater(len(file_storage.__doc__), 1)
+        self.assertIsNotNone(file_storage.__doc__)
 
     def test_docclass(self):
         """checking doc class"""
-        self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
+        self.assertIsNotNone(FileStorage.__doc__)
 
     def test_json(self):
         """Check file json"""
@@ -45,3 +48,12 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "My_first_model")
+
+    def test_inst(self):
+        """ test instance """
+        i = FileStorage()
+        self.assertEqual(i.path(), "file.json")
+
+        bm = BaseModel()
+        i.new(bm)
+        self.assertGreater(len(i.all()), 0)
