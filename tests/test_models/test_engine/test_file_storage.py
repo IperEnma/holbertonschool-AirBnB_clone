@@ -81,17 +81,3 @@ class test_file_storage(unittest.TestCase):
     def test_create_base(self):
         """test instance class BaseModel"""
         self.assertIsInstance(self.my_model, BaseModel)
-
-    def test_attr(self):
-        """test attributes"""
-        self.assertEqual(type(self.my_model.id), str)
-        self.assertEqual(type(self.my_model.created_at), datetime)
-        self.assertEqual(type(self.my_model.updated_at), datetime)
-
-        self.my_model.name = "My First Model"
-        self.my_model.my_number = 89
-        self.assertIn("name", self.my_model.to_dict())
-        self.assertIn("my_number", self.my_model.to_dict())
-        self.dict = self.my_model.to_dict()
-        self.assertEqual(self.dict["my_number"], 89)
-        self.assertEqual(self.dict["name"], "My First Model")
