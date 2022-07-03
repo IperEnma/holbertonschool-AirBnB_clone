@@ -64,10 +64,17 @@ class test_class_base(unittest.TestCase):
     def test_pep8(self):
         style = pep8.StyleGuide()
         filenames = ["./models/engine/file_storage.py"]
-        """, "./models/engine/file_storage.py"]"""
         check = style.check_files(filenames)
         self.assertEqual(check.total_errors, 0)
         filenames = ["./models/amenity.py", "./models/city.py", "./models/place.py",   "./models/state.py",
                 "./models/base_model.py",  "./models/__init__.py",  "./models/review.py",  "./models/user.py"]
         check = style.check_files(filenames)
         self.assertEqual(check.total_errors, 0)
+
+    def test_to_dict(self):
+        """test_to_dict """
+        bm = BaseModel()
+        dic = bm.to_dict()
+        self.assertEqual(type(dic), dict)
+        self.assertTrue(type(dic['created_at']) is str)
+        self.assertTrue(type(dic['updated_at']) is str)
