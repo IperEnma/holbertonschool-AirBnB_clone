@@ -3,7 +3,6 @@
 test module file storage
 """
 
-import pep8
 import json
 import unittest
 import os
