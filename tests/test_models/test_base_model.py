@@ -5,6 +5,7 @@ testing class base
 
 import unittest
 from models import base_model
+from datetime import datetime
 from models.base_model import BaseModel
 
 
@@ -34,6 +35,10 @@ class test_class_base(unittest.TestCase):
 
     def test_attr(self):
         """test attributes"""
+        self.assertEqual(type(self.my_model.id), str)
+        self.assertEqual(type(self.my_model.created_at), datetime)
+        self.assertEqual(type(self.my_model.updated_at), datetime)
+
         self.my_model.name = "My First Model"
         self.my_model.my_number = 89
         self.assertIn("name", self.my_model.to_dict())
