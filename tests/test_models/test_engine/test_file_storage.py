@@ -25,11 +25,10 @@ class test_file_storage(unittest.TestCase):
         """checking doc class"""
         self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
 
-    def test_jsonloading(self):
-        """checking json load"""
+    def test_json(self):
+        """Check file json"""
         with open("file.json") as f:
-            obj = json.load(f)
-            self.assertEqual(isinstance(obj, dict), True)
+            self.assertGreater(len(f.read()), 0)
 
     def test_reload(self):
         """ test reload from json """
