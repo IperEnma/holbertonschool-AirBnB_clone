@@ -38,4 +38,4 @@ class test_file_storage(unittest.TestCase):
         self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
-        self.assertTrue(self.storage.all(), "My_first_model") 
+        self.assertTrue(self.storage.all(), "My_first_model")
