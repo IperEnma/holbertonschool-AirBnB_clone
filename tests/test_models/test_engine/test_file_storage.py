@@ -3,6 +3,7 @@
 test module file storage
 """
 
+import json
 import unittest
 from models.base_model import BaseModel
 from models.engine import file_storage
@@ -23,6 +24,12 @@ class test_file_storage(unittest.TestCase):
     def test_docclass(self):
         """checking doc class"""
         self.assertGreater(len(file_storage.FileStorage.__doc__), 1)
+
+    def test_jsonloading(self):
+        """checking json load"""
+        with open("file.json") as f:
+            obj = json.load(f)
+            self.assertEqual(isinstance(obj, dict), True)
 
     def test_reload(self):
         """ test reload from json """
