@@ -69,7 +69,3 @@ class test_file_storage(unittest.TestCase):
     def setUp(self):
         """ set attr """
         self.dict = self.my_model.to_dict()
-
-    def test_docmodule(self):
-        """checking doc module"""
-        self.assertIsNotNone(base_model.__doc__)
