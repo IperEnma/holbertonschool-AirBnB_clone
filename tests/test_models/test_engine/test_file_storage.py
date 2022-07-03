@@ -11,8 +11,7 @@ from models.engine import file_storage
 class test_file_storage(unittest.TestCase):
     """ class test file storage """
 
-    @classmethod
-    def setUpClass(self):
+    def setUp(self):
         """ set instance class """
         self.my_model = BaseModel()
         self.storage = file_storage.FileStorage()
@@ -20,6 +19,7 @@ class test_file_storage(unittest.TestCase):
     def test_docmodule(self):
         """ checking doc module """
         self.assertGreater(len(file_storage.__doc__), 1)
+
 
     def test_docclass(self):
         """checking doc class"""
