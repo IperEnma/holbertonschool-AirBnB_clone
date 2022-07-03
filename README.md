@@ -1,7 +1,7 @@
 
 ## Proyect AirBnB Clone - The console 💻
 
-#### First step: Write a command interpreter to manage your AirBnB objects.
+#### Write a command interpreter to manage your AirBnB objects.
 
 ```
   Resume of functionalities:
