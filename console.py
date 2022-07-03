@@ -14,7 +14,7 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """line-oriented command interpreters"""
-    
+
     if sys.stdin and sys.stdin.isatty():
         prompt = "(hbnb) "
     else:
