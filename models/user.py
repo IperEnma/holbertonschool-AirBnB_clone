@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" user class """
 
 import models
 
