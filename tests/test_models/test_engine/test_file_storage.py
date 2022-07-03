@@ -27,8 +27,7 @@ class test_file_storage(unittest.TestCase):
     def test_all(self):
         """checking method all"""
         objs = self.storage.all()
-        self.assertIsNotNone(objs)
-        self.assertEqual(type(objs), dict)
+        self.assertIs(objs, self.storage._FileStorage__objects)
 
     def test_reload(self):
         """ test reload from json """
