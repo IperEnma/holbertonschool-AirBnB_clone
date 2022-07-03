@@ -32,14 +32,10 @@ class test_file_storage(unittest.TestCase):
         name = str(self.my_model.__class__.__name__)
         key = name + "." + str(self.my_model.id)
         self.my_model.save()
-        self.storage.reload()
+        sself.assertIsNotNone(self.storage.reload())
         objs = self.storage.all()
         self.obj_reload = objs[key]
         self.assertTrue(self.my_model.__dict__ == self.obj_reload.__dict__)
         self.assertTrue(self.my_model is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
-        self.assertTrue(self.storage.all(), "My_first_model")
-
-    def test_reload(self):
-        """ method reload check """
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
+        self.assertTrue(self.storage.all(), "My_first_model") 
