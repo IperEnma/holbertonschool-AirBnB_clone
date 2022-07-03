@@ -59,9 +59,6 @@ class test_file_storage(unittest.TestCase):
         i.new(bm)
         self.assertGreater(len(i.all()), 0)
 
-        """agrego basemodel test"""
-
-    @classmethod
-    def setUpClass(self):
-        """set class"""
-        self.my_model = BaseModel()
+    def setUp(self):
+        """ set attr """
+        print()
