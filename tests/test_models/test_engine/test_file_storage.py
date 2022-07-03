@@ -95,8 +95,3 @@ class test_file_storage(unittest.TestCase):
         self.dict = self.my_model.to_dict()
         self.assertEqual(self.dict["my_number"], 89)
         self.assertEqual(self.dict["name"], "My First Model")
-
-    def test_create_kwargs(self):
-        """ create class from dictionary """
-        self.kwargs = BaseModel(self.dict)
-        self.assertIsInstance(self.kwargs, BaseModel)
