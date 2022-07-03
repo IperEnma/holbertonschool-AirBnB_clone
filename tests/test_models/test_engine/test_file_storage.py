@@ -107,20 +107,3 @@ class test_file_storage(unittest.TestCase):
         self.my_model.save()
         update_new = self.my_model.updated_at
         self.assertTrue(update_old != update_new)
-
-    def test_pep8(self):
-        style = pep8.StyleGuide()
-        filenames = ["./models/engine/file_storage.py"]
-        check = style.check_files(filenames)
-        self.assertEqual(check.total_errors, 0)
-        filenames = [
-                "./models/amenity.py",
-                "./models/city.py",
-                "./models/place.py",
-                "./models/state.py",
-                "./models/base_model.py",
-                "./models/__init__.py",
-                "./models/review.py",
-                "./models/user.py"]
-        check = style.check_files(filenames)
-        self.assertEqual(check.total_errors, 0)
