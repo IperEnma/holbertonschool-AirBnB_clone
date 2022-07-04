@@ -16,33 +16,6 @@ Execute:
       ```
         ./console.py
       ```
-### Tasks:
-
-|       | Mandatory tasks    |
-| :-------- | :------- |
-| [x] | `0. README, AUTHORS` | 
-| [x] | `1. Be Pycodestyle compliant!` |
-| [x] | `2. Unittests` |
-| [x] | `3. BaseModel` | 
-| [x] | `4. Create BaseModel from dictionary` | 
-| [x] | `5. Store first object` |
-| [x] | `6. Console 0.0.1` |
-| [x] | `7. Console 0.1` |
-| [x] | `8. First User` |
-| [x] | `9. More classes!` |
-| [x] | `10. Console 1.0` |
-
-|       | Advanced tasks    |
-| :-------- | :------- |
-| [x] | `11. All instances by class name` |
-| [x] | `12. Count instances` |
-| [x] | `13. Show` |
-| [x] | `14. Destroy` |
-| [x] | `15. Update` |
-| [x] | `16. Update from dictionary` |
-| [] | `17. Unittests for the Console!` |
-
-
 ### Commands: 📄
 
 | Command | Example    | Description                       |
@@ -54,7 +27,7 @@ Execute:
 | `update`      | `update BaseModel 'valid_id' email "aibnb@mail.com"` / `BaseModel.update("'valid_id'", "email", "aibnb@mail.com")` / `BaseModel.update("'valid_id'", {'email' : "aibnb@mail.com", 'age': 23})`|  Updates an instance |
 | `count`      | `User.count()` |  Prints the number of instances of a class |
 
-#### Classes:
+#### Supported Classes:
 ```
 BaseModel, User, State, City, Amenity, Place, Review
 ```
@@ -65,7 +38,31 @@ Execute:
     ```
     python3 -m unittest discover tests
     ```
+### Tasks:
 
+|       | Mandatory tasks    |
+| :-------- | :------- |
+| ✓ | `0. README, AUTHORS` | 
+| ✓ | `1. Be Pycodestyle compliant!` |
+| ✓ | `2. Unittests` |
+| ✓ | `3. BaseModel` | 
+| ✓ | `4. Create BaseModel from dictionary` | 
+| ✓ | `5. Store first object` |
+| ✓ | `6. Console 0.0.1` |
+| ✓ | `7. Console 0.1` |
+| ✓ | `8. First User` |
+| ✓ | `9. More classes!` |
+| ✓ | `10. Console 1.0` |
+
+|       | Advanced tasks    |
+| :-------- | :------- |
+| ✓ | `11. All instances by class name` |
+| ✓ | `12. Count instances` |
+| ✓ | `13. Show` |
+| ✓ | `14. Destroy` |
+| ✓ | `15. Update` |
+| ✓ | `16. Update from dictionary` |
+| ✓ | `17. Unittests for the Console!` |
 
 
 ## Authors
