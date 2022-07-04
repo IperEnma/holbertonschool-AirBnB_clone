@@ -5,11 +5,11 @@
 
 ```
   Resume of functionalities:
-  🔸 Create a new object (ex: a new User or a new Place)
-  🔸 Retrieve an object from a file, a database etc…
-  🔸 Do operations on objects (count, compute stats, etc…)
-  🔸 Update attributes of an object
-  🔸 Destroy an object
+  - Create a new object (ex: a new User or a new Place)
+  -  Retrieve an object from a file, a database etc…
+  -  Do operations on objects (count, compute stats, etc…)
+  -  Update attributes of an object
+  -  Destroy an object
 ```
 ### How to use:
 Execute:
@@ -20,27 +20,27 @@ Execute:
 
 |       | Mandatory tasks    |
 | :-------- | :------- |
-| ✅ | `0. README, AUTHORS` | 
-| ✅ | `1. Be Pycodestyle compliant!` |
-| ✅ | `2. Unittests` |
-| ✅ | `3. BaseModel` | 
-| ✅ | `4. Create BaseModel from dictionary` | 
-| ✅ | `5. Store first object` |
-| ✅ | `6. Console 0.0.1` |
-| ✅ | `7. Console 0.1` |
-| ✅ | `8. First User` |
-| ✅ | `9. More classes!` |
-| ✅ | `10. Console 1.0` |
+| [x] | `0. README, AUTHORS` | 
+| [x] | `1. Be Pycodestyle compliant!` |
+| [x] | `2. Unittests` |
+| [x] | `3. BaseModel` | 
+| [x] | `4. Create BaseModel from dictionary` | 
+| [x] | `5. Store first object` |
+| [x] | `6. Console 0.0.1` |
+| [x] | `7. Console 0.1` |
+| [x] | `8. First User` |
+| [x] | `9. More classes!` |
+| [x] | `10. Console 1.0` |
 
 |       | Advanced tasks    |
 | :-------- | :------- |
-| ✅ | `11. All instances by class name` |
-| ✅ | `12. Count instances` |
-| ✅ | `13. Show` |
-| ✅ | `14. Destroy` |
-| ✅ | `15. Update` |
-| ✅ | `16. Update from dictionary` |
-| 🔲 | `17. Unittests for the Console!` |
+| [x] | `11. All instances by class name` |
+| [x] | `12. Count instances` |
+| [x] | `13. Show` |
+| [x] | `14. Destroy` |
+| [x] | `15. Update` |
+| [x] | `16. Update from dictionary` |
+| [] | `17. Unittests for the Console!` |
 
 
 ### Commands: 📄
