@@ -62,7 +62,7 @@ Execute:
 | ✓ | `14. Destroy` |
 | ✓ | `15. Update` |
 | ✓ | `16. Update from dictionary` |
-| ✓ | `17. Unittests for the Console!` |
+| X | `17. Unittests for the Console!` |
 
 
 ## Authors
