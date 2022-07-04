@@ -75,6 +75,7 @@ $
 ```
 
 ### Tests:
+All tests should also pass in non-interactive mode.
 
 Execute:
     ```
