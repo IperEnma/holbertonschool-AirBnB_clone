@@ -26,10 +26,52 @@ Execute:
 | `all`      | `all` / `all User` /  `User.all()`| Prints all string representation of all instances |
 | `update`      | `update BaseModel 'valid_id' email "aibnb@mail.com"` / `BaseModel.update("'valid_id'", "email", "aibnb@mail.com")` / `BaseModel.update("'valid_id'", {'email' : "aibnb@mail.com", 'age': 23})`|  Updates an instance |
 | `count`      | `User.count()` |  Prints the number of instances of a class |
+| `help`      | `help` /  `help Create`|  Help |
+| `quit`      | `quit` |  Exit the program |
 
 #### Supported Classes:
 ```
 BaseModel, User, State, City, Amenity, Place, Review
+```
+
+### How does it works:
+
+- Interactive Mode:
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+```
+
+- Non-interactive mode:
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
 ```
 
 ### Tests:
