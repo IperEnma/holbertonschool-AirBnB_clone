@@ -30,6 +30,7 @@ div.locations h3 {
     margin-top: 30px;
     font-weight: 600;
     text-align: center;
+    margin-left: -28%;
 }
 div.locations h4 {
     font-weight: 400;
@@ -45,6 +46,7 @@ div.amenities h3 {
     margin-top: 30px;
     font-weight: 600;
     text-align: center;
+    margin-left: -10%;
 }
 div.amenities h4 {
     font-weight: 400;

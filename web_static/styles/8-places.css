@@ -6,6 +6,7 @@
 .places h1 {
     font-size: 30px;
     margin-inline-end: 100%;
+    margin-inline-start: 100px;
 }
 .places article {
     width: 390px;
@@ -31,6 +32,8 @@
     margin-inline-start: 80%;
     line-height: 55px;
     text-align: center;
+    margin-bottom: inherit;
+    margin-top: -20px;
 }
 .information {
     height: 80px;
@@ -59,4 +62,10 @@
     width: 100px;
     height: 100px;
     line-height: 7.5;
+}
+.user {
+    margin-top: inherit;
+}
+.description {
+    margin-top: inherit;
 }
