@@ -59,6 +59,7 @@ div.amenities h4 {
     border-radius: 4px;
     margin-top: 22px;
     padding-inline-start: 0;
+    position: relative;
 }
 .popover h2 {
     font-size: 16px;
