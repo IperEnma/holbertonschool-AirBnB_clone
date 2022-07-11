@@ -37,6 +37,7 @@
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
     display: flex;
+    justify-content: center;
 }
 .max_guest {
     background-image: url("../images/icon_group.png");
