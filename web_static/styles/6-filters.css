@@ -29,29 +29,32 @@ div.locations {
 div.locations h3 {
     margin-top: 30px;
     font-weight: 600;
-    text-align: center;
-    margin-left: -28%;
+    text-align: left;
+    margin-left: 20%;
 }
 div.locations h4 {
     font-weight: 400;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
+    margin-left: 20%;
 }
-div.amenities {
+.filters div.amenities {
     height: 100%;
     width: 25%;
     line-height: 0;
 }
-div.amenities h3 {
+.filters div.amenities h3 {
     margin-top: 30px;
     font-weight: 600;
     text-align: center;
-    margin-left: -10%;
+    text-align: left;
+    margin-left: 20%;
 }
-div.amenities h4 {
+.filters div.amenities h4 {
     font-weight: 400;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
+    margin-left: 20%;
 }
 .popover {
     visibility: hidden;
